@@ -1,12 +1,10 @@
 package net.citation.citation_api.dao.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 @Entity
-@Table(name="UserEntity")
+@Table(name="users")
 public class UserEntity {
     @Id
     private long id;
@@ -18,6 +16,14 @@ public class UserEntity {
 
     public UserEntity(long id, String login, String passwd, Date dateCreation, Date dateSuppression, Date dateMAJ) {
         this.id = id;
+        this.login = login;
+        this.passwd = passwd;
+        this.dateCreation = dateCreation;
+        this.dateSuppression = dateSuppression;
+        this.dateMAJ = dateMAJ;
+    }
+
+    public UserEntity(String login, String passwd, Date dateCreation, Date dateSuppression, Date dateMAJ) {
         this.login = login;
         this.passwd = passwd;
         this.dateCreation = dateCreation;
